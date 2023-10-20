@@ -24,7 +24,7 @@
     <nav class="relative px-4 py-4 flex justify-between items-center bg-[#14131e] !mb-0 ">
       <a class="text-3xl font-bold leading-none" href="#">
         <div class="flex w-[10] ml-[30px]">
-          <img src="./assets/images/logo2.png" class="logo" alt="Tattoo Studio Logo" />
+          
         </div>
       </a>
       <div class="lg:hidden">
@@ -52,7 +52,7 @@
         </li>
         <li><a class="text-sm text-gray-400 hover:text-gray-500" href="/tatuagempit/pages/FAQ/index.php">FAQ</a></li>
       </ul>
-      <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" href="/tatuagempit/pages/Login/login.php">Logar</a>
+      <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" href="/TatuagemApi/pages/Login/login.php">Sair</a>
     </nav>
     <div class="flex flex-col gap-10 p-10">
       <div class="flex justify-start !mt-0 items-start  !pt-0">
