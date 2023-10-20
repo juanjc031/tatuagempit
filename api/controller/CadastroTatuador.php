@@ -9,10 +9,12 @@ $senha = $_POST["senha"];
 $telefone = $_POST["tel"];
 $insta = $_POST["insta"];
 $carac = $_POST["carac"];
+$estilo = $_POST["estilo"];
+$tamanho = $_POST["tamanho"];
 
 $service = new Service();
 
-$result = $service->CadastrarTatuador($nome, $email, $senha, $usuario, $telefone, $insta, $carac);
+$result = $service->CadastrarTatuador($nome, $email, $senha, $usuario, $telefone, $insta, $carac, $estilo, $tamanho);
 
 if (!$result["resultado"]) {
   http_response_code(400);

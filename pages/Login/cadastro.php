@@ -69,21 +69,21 @@ include_once('../toast.php');
               </div>
               <div class="">
                 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Seus estilos de tatuagem</label>
-                <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <select id="estilo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                   <option selected>Selecione uma opção</option>
-                  <option value="US">Tribal</option>
-                  <option value="US">Realismo</option>
-                  <option value="CA">Old School</option>
-                  <option value="FR">Japonês</option>
+                  <option value="Tribal">Tribal</option>
+                  <option value="Realismo">Realismo</option>
+                  <option value="Old School">Old School</option>
+                  <option value="Japonês">Japonês</option>
                 </select>
               </div>
               <div class="w-full">
                 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tamanhos das suas tatuagens</label>
-                <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <select id="tamanho" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                   <option selected>Selecione uma opção</option>
-                  <option value="US">Pequeno</option>
-                  <option value="US">Médio</option>
-                  <option value="CA">Grande</option>
+                  <option value="0">Pequeno</option>
+                  <option value="1">Médio</option>
+                  <option value="2">Grande</option>
                 </select>
               </div>
               <div class="mt-3">
@@ -187,6 +187,8 @@ include_once('../toast.php');
           const tel = $("#tel").val()
           const insta = $("#insta").val()
           const carac = $("#carac").val()
+          const estilo = $("#estilo").val()
+          const tamanho = $("#tamanho").val()
 
           $.ajax({
             url: "/tatuagempit/api/controller/CadastroTatuador.php",
@@ -198,7 +200,9 @@ include_once('../toast.php');
               senha,
               tel,
               insta,
-              carac
+              carac,
+              estilo,
+              tamanho
             },
             success: (data) => {
               data = JSON.parse(data);

@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 
 ?>
 
@@ -96,7 +96,9 @@ session_start();
         </div>
       </div>
 
-      <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div id="card-container" class="flex gap-6 flex-wrap w-full px-4"></div>
+
+      <!-- <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Juan Costa</h5>
         </a>
@@ -113,7 +115,7 @@ session_start();
           </svg>
         </a>
       </div>
-
+ -->
     </div>
   </main>
 </body>
@@ -123,9 +125,44 @@ session_start();
   function BuscarTatuador() {
     $.ajax({
       url: "/tatuagempit/api/controller/ListaTatuador",
-      method: "GET",
+      method: "POST",
+      data: {
+        estilo: "",
+        tamanho: ""
+      },
       success: (data) => {
+      console.log(data)
+
+        data = JSON.parse(data)
+
         console.log(data)
+
+        let html = "";
+
+        data.data.forEach(element => {
+          html += `
+          <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${element.nome}</h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Estilo de tatuagem: ${element.estilo}</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Tamanhos de tatuagem: ${element.tamanho == 0 ? "Pequeno" : element.tamanho == 1 ? "Médio" : "Grande"}</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Telefone de contato: ${element.telefone}</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Instagram: ${element.instagram}</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Descrição: ${element.caracteristicas}</p>
+
+            <a href="#" id="pagar" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Pagar Adiantado
+              <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+              </svg>
+            </a>
+          </div>
+          `;
+        });
+
+        $("#card-container").html(html)
+
       },
       error: (error) => {
         console.log(error)
@@ -136,22 +173,20 @@ session_start();
   BuscarTatuador()
 
   $("#pagar").click(() => {
-
-
     swal.fire({
-                        title: 'Pague adiantado aqui!',
-                        html: `  <div>
+      title: 'Pague adiantado aqui!',
+      html: `  <div>
                   <label for="" class="block mb-2 text-sm font-medium text-gray-300 dark:text-gray-500">Valor do pagamento</label>
                   <input type="text" name="tel" id="tel" maxlength="14" class="bg-gray-30 border border-gray-300 text-gray-500 sm:text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-400 dark:border-gray-200 dark:placeholder-gray-500 dark:text-gray-500" placeholder="R$ 00,00" required="">
                 </div>`,
-                        icon: 'info'
-                    }).then((result) => {
-                      swal.fire({
-                        title: 'Pagamento realizado!',
-                        html: ``,
-                        icon: 'success'
-                    })
-          })
+      icon: 'info'
+    }).then((result) => {
+      swal.fire({
+        title: 'Pagamento realizado!',
+        html: ``,
+        icon: 'success'
+      })
+    })
   })
 </script>
 <script>

@@ -2,6 +2,8 @@ create database tatuagem;
 
 use tatuagem;
 
+drop table usuario;
+
 create table usuario (
     id int primary key auto_increment,
     nome varchar(250) not null,
@@ -11,6 +13,7 @@ create table usuario (
     tatuador boolean not null,
     telefone varchar(250),
     instagram varchar(255),
-    caracteristicas varchar(250)
-    );
-    
+    caracteristicas varchar(250),
+    estilo varchar(250),
+    tamanho int
+);
