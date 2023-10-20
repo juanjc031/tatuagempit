@@ -41,8 +41,6 @@ include_once('../toast.php');
               <input type="text" name="usuario" id="usuario" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required="">
             </div>
 
-
-
             <div class="flex w-full gap-3">
               <div>
                 <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Senha</label>
@@ -61,17 +59,17 @@ include_once('../toast.php');
             <div id="inputs" class="hidden">
               <div class="flex w-full gap-3">
                 <div>
-                  <label for="cpf" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Telefone de contato</label>
-                  <input type="text" name="cpf" id="cpf" maxlength="14" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="(99) 99999-9999" required="">
+                  <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Telefone de contato</label>
+                  <input type="text" name="tel" id="tel" maxlength="14" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="(99) 99999-9999" required="">
                 </div>
                 <div>
-                  <label for="cpf" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Instagram</label>
-                  <input type="text" name="cpf" id="cpf" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="" required="">
+                  <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Instagram</label>
+                  <input type="text" name="insta" id="insta" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="" required="">
                 </div>
               </div>
               <div class="mt-3">
                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Suas Caracteristicas</label>
-                <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Escrevas suas caracteristicas aqui..."></textarea>
+                <textarea id="carac" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Escrevas suas caracteristicas aqui..."></textarea>
               </div>
             </div>
             <button type="button" class=" text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-[90%] px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="cadastrar">Cadastrar</button>
@@ -113,10 +111,9 @@ include_once('../toast.php');
       const nome = $("#nome").val()
       const email = $("#email").val();
       const usuario = $('#usuario').val();
-      const cpf = $("#cpf").val();
       const senha = $("#password").val();
       const cSenha = $("#cpassword").val();
-      const motorista = $("#motorista").is(":checked")
+      const tatuador = $("#tatuador").is(":checked")
 
       if (!nome) {
         showToast();
@@ -127,9 +124,6 @@ include_once('../toast.php');
       } else if (!usuario) {
         showToast();
         $("#message").html("Insira o usuário!");
-      } else if (!cpf) {
-        showToast();
-        $("#message").html("Insira o CPF!");
       } else if (!senha) {
         showToast();
         $("#message").html("Insira a senha!");
@@ -140,37 +134,76 @@ include_once('../toast.php');
         showToast();
         $("#message").html("As senhas estão diferentes!");
       } else {
-        $.ajax({
-          url: "/BoxUp/src/api/controller/CadastroController",
-          method: "POST",
-          data: {
-            nome,
-            email,
-            usuario,
-            cpf,
-            senha,
-            motorista
-          },
-          success: (data) => {
-            data = JSON.parse(data);
+        if (!tatuador) {
+          $.ajax({
+            url: "/tatuagempit/api/controller/Cadastro.php",
+            method: "POST",
+            data: {
+              nome,
+              email,
+              usuario,
+              senha
+            },
+            success: (data) => {
+              data = JSON.parse(data);
 
-            swal.fire({
-              title: "Sucesso",
-              html: data.message,
-              icon: "success"
-            }).then(() => {
-              window.location.href = window.location.href.replace('cadastro', 'login');
-            })
-          },
-          error: (error) => {
-            console.log(error)
-            swal.fire({
-              title: "Erro",
-              html: "Erro ao cadastrar",
-              icon: "error"
-            })
-          }
-        })
+              swal.fire({
+                title: "Sucesso",
+                html: data.message,
+                icon: "success"
+              }).then(() => {
+                window.location.href = window.location.href.replace('cadastro', 'login');
+              })
+            },
+            error: (error) => {
+              console.log(error)
+              swal.fire({
+                title: "Erro",
+                html: "Erro ao cadastrar",
+                icon: "error"
+              })
+            }
+          })
+        } else {
+          const tel = $("#tel").val()
+          const insta = $("#insta").val()
+          const carac = $("#carac").val()
+
+          $.ajax({
+            url: "/tatuagempit/api/controller/CadastroTatuador.php",
+            method: "POST",
+            data: {
+              nome,
+              email,
+              usuario,
+              senha,
+              tel,
+              insta,
+              carac
+            },
+            success: (data) => {
+              data = JSON.parse(data);
+
+              swal.fire({
+                title: "Sucesso",
+                html: data.message,
+                icon: "success"
+              }).then(() => {
+                window.location.href = window.location.href.replace('cadastro', 'login');
+              })
+            },
+            error: (error) => {
+              console.log(error)
+              swal.fire({
+                title: "Erro",
+                html: "Erro ao cadastrar",
+                icon: "error"
+              })
+            }
+          })
+        }
+
+
       }
     })
   </script>
