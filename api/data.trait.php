@@ -89,12 +89,22 @@ class Service
     return $retorno;
   }
 
-  public function BuscarTatuador()
+  public function BuscarTatuador($estilo = "", $tamanho = "")
   {
     $retorno = [];
 
     try {
-      $sql = "SELECT * FROM usuario WHERE tatuador = 1";
+      $where = "";
+
+      echo $estilo;
+
+      if ($estilo != ""){
+        $where .= "AND estilo = '$estilo'";
+      } else if ($tamanho != "") {
+        $where .= "AND tamanho = $tamanho";
+      }
+
+      $sql = "SELECT * FROM usuario WHERE tatuador = 1 $where";
 
       $query = $this->con->query($sql);
 
