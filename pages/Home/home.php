@@ -44,13 +44,13 @@
         </li>
 
 
-        <li><a class="text-sm text-gray-400 hover:text-gray-500" href="/TatuagemApi/pages/suporte/index.php">Suporte</a></li>
+        <li><a class="text-sm text-gray-400 hover:text-gray-500" href="/tatuagempit/pages/suporte/index.php">Suporte</a></li>
         <li class="text-gray-300">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
           </svg>
         </li>
-        <li><a class="text-sm text-gray-400 hover:text-gray-500" href="/TatuagemApi/pages/FAQ/index.php">FAQ</a></li>
+        <li><a class="text-sm text-gray-400 hover:text-gray-500" href="/tatuagempit/pages/FAQ/index.php">FAQ</a></li>
       </ul>
       <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" href="/tatuagempit/pages/Login/login.php">Logar</a>
     </nav>
@@ -71,24 +71,23 @@
                 <div class="flex gap-4 p-6 w-full">
                   <div class="w-full">
                     <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Estilo</label>
-                    <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                      <option selected>Selecione uma opção</option>
-                      <option value="US">Tribal</option>
-                      <option value="US">Realismo</option>
-                      <option value="CA">Old School</option>
-                      <option value="FR">Japonês</option>
+                    <select id="estilo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                      <option value="Tribal" selected>Tribal</option>
+                      <option value="Realismo">Realismo</option>
+                      <option value="Old School">Old School</option>
+                      <option value="Japonês">Japonês</option>
                     </select>
                   </div>
                   <div class="w-full">
                     <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tamanho</label>
-                    <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                      <option selected>Selecione uma opção</option>
-                      <option value="US">Pequeno</option>
-                      <option value="US">Médio</option>
-                      <option value="CA">Grande</option>
+                    <select id="tamanho" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                      <option selected value="0">Pequeno</option>
+                      <option value="1">Médio</option>
+                      <option value="2">Grande</option>
                     </select>
                   </div>
                 </div>
+                <button id="consultar" class="py-2 ml-5 mb-3 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200">Consultar</button>
               </div>
             </li>
 
@@ -122,56 +121,6 @@
 
 </html>
 <script>
-  function BuscarTatuador() {
-    $.ajax({
-      url: "/tatuagempit/api/controller/ListaTatuador",
-      method: "POST",
-      data: {
-        estilo: "",
-        tamanho: ""
-      },
-      success: (data) => {
-      console.log(data)
-
-        data = JSON.parse(data)
-
-        console.log(data)
-
-        let html = "";
-
-        data.data.forEach(element => {
-          html += `
-          <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${element.nome}</h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Estilo de tatuagem: ${element.estilo}</p>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Tamanhos de tatuagem: ${element.tamanho == 0 ? "Pequeno" : element.tamanho == 1 ? "Médio" : "Grande"}</p>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Telefone de contato: ${element.telefone}</p>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Instagram: ${element.instagram}</p>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Descrição: ${element.caracteristicas}</p>
-
-            <a href="#" id="pagar" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Pagar Adiantado
-              <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-              </svg>
-            </a>
-          </div>
-          `;
-        });
-
-        $("#card-container").html(html)
-
-      },
-      error: (error) => {
-        console.log(error)
-      }
-    })
-  }
-
-  BuscarTatuador()
-
   $("#pagar").click(() => {
     swal.fire({
       title: 'Pague adiantado aqui!',
@@ -187,6 +136,115 @@
         icon: 'success'
       })
     })
+  })
+
+  function BuscarTatuador(estilo = "", tamanho = "") {
+    if (estilo != "") {
+      $.ajax({
+        url: "/tatuagempit/api/controller/ListaTatuador",
+        method: "POST",
+        data: {
+          estilo,
+          tamanho
+        },
+        success: (data) => {
+          console.log(data)
+
+          data = JSON.parse(data)
+
+          console.log(data)
+
+          let html = "";
+
+          data.data.forEach(element => {
+            html += `
+          <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${element.nome}</h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Estilo de tatuagem: ${element.estilo}</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Tamanhos de tatuagem: ${element.tamanho == 0 ? "Pequeno" : element.tamanho == 1 ? "Médio" : "Grande"}</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Telefone de contato: ${element.telefone}</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Instagram: ${element.instagram}</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Descrição: ${element.caracteristicas}</p>
+
+            <button type="button" id="pagar" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Pagar Adiantado
+              <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+              </svg>
+            </button>
+          </div>
+          `;
+          });
+
+          $("#card-container").html(html)
+
+        },
+        error: (error) => {
+          console.log(error)
+        }
+      })
+    } else {
+
+
+      $.ajax({
+        url: "/tatuagempit/api/controller/ListaTatuador",
+        method: "POST",
+        data: {
+          estilo,
+          tamanho
+        },
+        success: (data) => {
+          console.log(data)
+
+          data = JSON.parse(data)
+
+          console.log(data)
+
+          let html = "";
+
+          data.data.forEach(element => {
+            html += `
+          <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${element.nome}</h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Estilo de tatuagem: ${element.estilo}</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Tamanhos de tatuagem: ${element.tamanho == 0 ? "Pequeno" : element.tamanho == 1 ? "Médio" : "Grande"}</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Telefone de contato: ${element.telefone}</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Instagram: ${element.instagram}</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Descrição: ${element.caracteristicas}</p>
+            
+            <a href="#" id="pagar" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Pagar Adiantado
+            <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+            </svg>
+            </a>
+            </div>
+            `;
+          });
+
+          $("#card-container").html(html)
+
+        },
+        error: (error) => {
+          console.log(error)
+        }
+      })
+    }
+  }
+
+  BuscarTatuador()
+
+  $("#consultar").click(() => {
+    const estilo = $("#estilo").val()
+    const tamanho = $("#tamanho").val()
+
+    console.log(estilo, tamanho)
+
+    BuscarTatuador(estilo, tamanho)
   })
 </script>
 <script>
