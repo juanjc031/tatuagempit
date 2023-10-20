@@ -62,7 +62,7 @@ include_once('../toast.php');
         $('#message').html('Insira a senha!')
       } else {
         $.ajax({
-          url: "/BoxUp/src/api/controller/LoginController",
+          url: "/tatuagempit/api/controller/Login",
           method: "POST",
           data: {
             email,
@@ -76,7 +76,7 @@ include_once('../toast.php');
               html: data.message,
               icon: "success"
             }).then(() => {
-              window.location.href = window.location.href.replace('usuario', 'home').replace('login', 'home')
+              window.location.href = window.location.href.replace('Login', 'Home').replace('login', 'home')
             })
           },
           error: (error) => {
