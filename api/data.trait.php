@@ -35,13 +35,13 @@ class Service
     return $retorno;
   }
 
-  public function CadastrarTatuador($nome, $email, $senha, $usuario, $telefone, $instagram, $carac): array
+  public function CadastrarTatuador($nome, $email, $senha, $usuario, $telefone, $instagram, $carac, $estilo, $tamanho): array
   {
     $retorno = [];
 
     try {
       $senhaCripto = md5($senha);
-      $sql = "INSERT INTO usuario (nome, senha, usuario, email, tatuador, telefone, instagram, caracteristicas) VALUES ('$nome', '$senhaCripto', '$usuario', '$email', 1, '$telefone', '$instagram', '$carac')";
+      $sql = "INSERT INTO usuario (nome, senha, usuario, email, tatuador, telefone, instagram, caracteristicas, estilo, tamanho) VALUES ('$nome', '$senhaCripto', '$usuario', '$email', 1, '$telefone', '$instagram', '$carac', '$estilo', $tamanho)";
 
       $stmt = $this->con->prepare($sql);
       $stmt->execute();
