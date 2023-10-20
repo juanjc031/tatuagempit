@@ -37,25 +37,15 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
           </svg>
         </li>
-        <li><a class="text-sm text-gray-400 hover:text-gray-500" href="#">Sobre nós</a></li>
+        
+        
+        <li><a class="text-sm text-gray-400 hover:text-gray-500" href="/TatuagemApi/pages/suporte/index.php">Suporte</a></li>
         <li class="text-gray-300">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
           </svg>
         </li>
-        <li><a class="text-sm text-gray-400 hover:text-gray-500" href="#">Serviços</a></li>
-        <li class="text-gray-300">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-          </svg>
-        </li>
-        <li><a class="text-sm text-gray-400 hover:text-gray-500" href="#">Contato</a></li>
-        <li class="text-gray-300">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-          </svg>
-        </li>
-        <li><a class="text-sm text-gray-400 hover:text-gray-500" href="#">FAQ</a></li>
+        <li><a class="text-sm text-gray-400 hover:text-gray-500" href="/TatuagemApi/pages/FAQ/index.php">FAQ</a></li>
       </ul>
       <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" href="pages/Login/login.php">Logar</a>
     </nav>
@@ -107,9 +97,12 @@
         </a>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Estilo de tatuagem:</p>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Tamanhos de tatuagem:</p>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Telefone de contato:</p>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Instagram: @juancsz</p>
-        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-          Read more
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Descrição: teste teste teste</p>
+       
+        <a href="#" id="pagar" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Pagar Adiantado
           <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
           </svg>
@@ -121,6 +114,17 @@
 </body>
 
 </html>
+<script>
+  $("#pagar").click(() => {
+
+    
+    swal.fire({
+                        title: 'Pague adiantado aqui!',
+                        html: 'Acompanhe sua mudança na aba minhas mudanças!',
+                        icon: 'success'
+                    })
+  })
+</script>
 <script>
   document.addEventListener('alpine:init', () => {
     Alpine.store('accordion', {
