@@ -67,6 +67,25 @@ include_once('../toast.php');
                   <input type="text" name="insta" id="insta" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="" required="">
                 </div>
               </div>
+              <div class="">
+                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Seus estilos de tatuagem</label>
+                <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <option selected>Selecione uma opção</option>
+                  <option value="US">Tribal</option>
+                  <option value="US">Realismo</option>
+                  <option value="CA">Old School</option>
+                  <option value="FR">Japonês</option>
+                </select>
+              </div>
+              <div class="w-full">
+                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tamanhos das suas tatuagens</label>
+                <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <option selected>Selecione uma opção</option>
+                  <option value="US">Pequeno</option>
+                  <option value="US">Médio</option>
+                  <option value="CA">Grande</option>
+                </select>
+              </div>
               <div class="mt-3">
                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Suas Caracteristicas</label>
                 <textarea id="carac" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Escrevas suas caracteristicas aqui..."></textarea>

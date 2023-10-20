@@ -168,10 +168,19 @@ session_start();
 
   $("#pagar").click(() => {
     swal.fire({
-      title: 'Pague adiantado aqui!',
-      html: 'Acompanhe sua mudança na aba minhas mudanças!',
-      icon: 'success'
-    })
+                        title: 'Pague adiantado aqui!',
+                        html: `  <div>
+                  <label for="" class="block mb-2 text-sm font-medium text-gray-300 dark:text-gray-500">Valor do pagamento</label>
+                  <input type="text" name="tel" id="tel" maxlength="14" class="bg-gray-30 border border-gray-300 text-gray-500 sm:text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-400 dark:border-gray-200 dark:placeholder-gray-500 dark:text-gray-500" placeholder="R$ 00,00" required="">
+                </div>`,
+                        icon: 'info'
+                    }).then((result) => {
+                      swal.fire({
+                        title: 'Pagamento realizado!',
+                        html: ``,
+                        icon: 'success'
+                    })
+          })
   })
 </script>
 <script>
