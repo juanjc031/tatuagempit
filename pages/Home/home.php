@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -122,6 +127,21 @@
 
 </html>
 <script>
+  function BuscarTatuador() {
+    $.ajax({
+      url: "/tatuagempit/api/controller/ListaTatuador",
+      method: "GET",
+      success: (data) => {
+        console.log(data)
+      },
+      error: (error) => {
+        console.log(error)
+      }
+    })
+  }
+
+  BuscarTatuador()
+
   document.addEventListener('alpine:init', () => {
     Alpine.store('accordion', {
       tab: 0

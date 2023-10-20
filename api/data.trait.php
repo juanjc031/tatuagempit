@@ -89,4 +89,27 @@ class Service
     return $retorno;
   }
 
+  public function BuscarTatuador()
+  {
+    $retorno = [];
+
+    try {
+      $sql = "SELECT * FROM usuario WHERE tatuador = 1";
+
+      $query = $this->con->query($sql);
+
+      $tatuadores = $query->fetchAll(PDO::FETCH_ASSOC);
+
+
+      $retorno["data"] = $tatuadores;
+      $retorno["message"] = "Sucesso!";
+      $retorno["resultado"] = true;
+    } catch (PDOException $e) {
+      $retorno["error"] = $e->getMessage();
+      $retorno["resultado"] = false;
+      $retorno["data"] = "";
+    }
+
+    return $retorno;
+  }
 }
