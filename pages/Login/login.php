@@ -62,7 +62,7 @@ include_once('../toast.php');
         $('#message').html('Insira a senha!')
       } else {
         $.ajax({
-          url: "/tatuagempit/api/controller/Login",
+          url: "/tatuagemapi/api/controller/Login",
           method: "POST",
           data: {
             email,
@@ -91,9 +91,3 @@ include_once('../toast.php');
       }
     })
   </script>
-
-  <?php
-
-  include_once('../footer.php');
-
-  ?>

@@ -15,7 +15,7 @@
     <nav class="relative px-4 py-4 flex justify-between items-center bg-[#14131e]">
       <a class="text-3xl font-bold leading-none" href="#">
         <div class="flex w-[10] ml-[30px]">
-          <img src="./assets/images/logo2.png" class="logo" alt="Tattoo Studio Logo" />
+          <img src="./src/images/logo2.png" class="logo" alt="Tattoo Studio Logo" />
         </div>
       </a>
       <div class="lg:hidden">
@@ -50,7 +50,7 @@
         <div class="flex items-center mb-8">
           <a class="mr-auto text-3xl font-bold leading-none" href="#">
             <div class="flex w-[10] ">
-              <img src="./assets/images/logo2.png" class="logo" alt="Tattoo Studio Logo" />
+              <img src="./src/images/logo2.png" class="logo" alt="Tattoo Studio Logo" />
             </div>
           </a>
           <button class="navbar-close">
@@ -134,7 +134,7 @@
   }
 
   body {
-    /* background-image: url("./assets/images/BackgroundImage.jpeg");
+    /* background-image: url("./src/images/BackgroundImage.jpeg");
   background-size: cover; */
     margin: 0;
     padding: 0;
@@ -181,7 +181,7 @@
   .imagemlanding {
     width: 50%;
     height: 60%;
-    background-image: url("./assets/images/bonecos.png");
+    background-image: url("./src/images/bonecos.png");
     background-size: cover;
   }
 
