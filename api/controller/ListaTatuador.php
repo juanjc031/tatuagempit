@@ -3,16 +3,12 @@ session_start();
 
 include_once("../data.trait.php");
 
-$estilo = $_POST["estilo"];
-$tamanho = $_POST["tamanho"];
+$filtroestilo = $_POST["filtroestilo"];
+$filtrotamanho = $_POST["filtrotamanho"];
 
 $service = new Service();
 
-if (!isset($estilo) && !isset($tamanho)) {
-  $result = $service->BuscarTatuador($estilo, $tamanho);
-} else {
-  $result = $service->BuscarTatuador();
-}
+$result = $service->BuscarTatuador($filtroestilo, $filtrotamanho);
 
 if (!$result["resultado"]) {
   http_response_code(400);

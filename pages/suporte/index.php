@@ -65,13 +65,13 @@ include_once('../toast.php');
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_next" value="http://localhost:8080/TatuagemApi/pages/suporte/index.php">
             <div class="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-              <input class="w-full bg-gray-400 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" placeholder="Primeiro Nome*" id="nome" name="nome" required />
-              <input class="w-full bg-gray-400 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" placeholder="Ultimo Nome*" id="sobrenome" name="sobrenome" required />
-              <input class="w-full bg-gray-400 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="email" placeholder="Email*" id="email" name="email" required />
-              <input class="w-full bg-gray-400 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" placeholder="Celular*" maxlength="15" id="celular" name="celular" required />
+              <input class="w-full bg-gray-900 text-gray-400  mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" placeholder="Primeiro Nome*" id="nome" name="nome" required />
+              <input class="w-full bg-gray-900 text-gray-400  mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" placeholder="Ultimo Nome*" id="sobrenome" name="sobrenome" required />
+              <input class="w-full bg-gray-900 text-gray-400  mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="email" placeholder="Email*" id="email" name="email" required />
+              <input class="w-full bg-gray-900 text-gray-400  mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" type="text" placeholder="Celular*" maxlength="15" id="celular" name="celular" required />
             </div>
             <div class="my-4">
-              <textarea placeholder="Mensagem*" class="w-full h-32 bg-gray-400 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" name="mensagem" required id="mensagem"></textarea>
+              <textarea placeholder="Mensagem*" class="w-full h-32 bg-gray-900 text-gray-400 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" name="mensagem" required id="mensagem"></textarea>
             </div>
             <div class="my-2 w-1/2 lg:w-1/4">
               <button id="enviar" class=" uppercase text-sm font-bold tracking-wide bg-blue-600 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">

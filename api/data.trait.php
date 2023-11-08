@@ -58,14 +58,14 @@ class Service
     return $retorno;
   }
 
-
   public function Logar($email, $senha): array
   {
     $retorno = [];
 
     try {
       $senhaCripto = md5($senha);
-      $sql = "SELECT * FROM usuario WHERE email = '$email' AND senha = '$senhaCripto'";
+
+      $sql = "SELECT * FROM usuario WHERE email = '$email' AND senha = '$senhaCripto' ";
 
       $query = $this->con->query($sql);
 
@@ -89,19 +89,17 @@ class Service
     return $retorno;
   }
 
-  public function BuscarTatuador($estilo = "", $tamanho = "")
+  public function BuscarTatuador($filtroestilo, $filtrotamanho)
   {
     $retorno = [];
 
     try {
       $where = "";
 
-      echo $estilo;
-
-      if ($estilo != ""){
-        $where .= "AND estilo = '$estilo'";
-      } else if ($tamanho != "") {
-        $where .= "AND tamanho = $tamanho";
+      if ($filtroestilo != ""){
+        $where .= "AND estilo = '$filtroestilo'";
+      } else if ($filtrotamanho != "") {
+        $where .= "AND tamanho = $filtrotamanho";
       }
 
       $sql = "SELECT * FROM usuario WHERE tatuador = 1 $where";

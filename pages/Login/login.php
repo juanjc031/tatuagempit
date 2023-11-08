@@ -74,7 +74,11 @@ include_once('../toast.php');
             swal.fire({
               title: "Sucesso",
               html: data.message,
-              icon: "success"
+              icon: "success",
+              customClass: {
+                popup: 'my-swal-popup-class',
+                confirmButton: 'my-confirm-button-class'
+              }
             }).then(() => {
               window.location.href = window.location.href.replace('Login', 'Home').replace('login', 'home')
             })
@@ -84,10 +88,25 @@ include_once('../toast.php');
             swal.fire({
               title: "Erro",
               html: "Erro ao logar",
-              icon: "error"
+              icon: "error",
+              customClass: {
+                popup: 'my-swal-popup-class',
+                confirmButton: 'my-confirm-button-class'
+              }
             })
           }
         })
       }
     })
   </script>
+  <style>
+    .my-swal-popup-class {
+      background-color: #374151;
+      color: white;
+    }
+
+    .my-confirm-button-class {
+      background-color: #2563eb;
+      color: black;
+    }
+  </style>

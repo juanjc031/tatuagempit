@@ -184,7 +184,11 @@ include_once('../toast.php');
               swal.fire({
                 title: "Sucesso",
                 html: data.message,
-                icon: "success"
+                icon: "success",
+                customClass: {
+                  popup: 'my-swal-popup-class',
+                  confirmButton: 'my-confirm-button-class'
+                }
               }).then(() => {
                 window.location.href = window.location.href.replace('cadastro', 'login');
               })
@@ -194,7 +198,11 @@ include_once('../toast.php');
               swal.fire({
                 title: "Erro",
                 html: "Erro ao cadastrar",
-                icon: "error"
+                icon: "error",
+                customClass: {
+                  popup: 'my-swal-popup-class',
+                  confirmButton: 'my-confirm-button-class'
+                }
               })
             }
           })
@@ -227,7 +235,11 @@ include_once('../toast.php');
               swal.fire({
                 title: "Sucesso",
                 html: data.message,
-                icon: "success"
+                icon: "success",
+                customClass: {
+                  popup: 'my-swal-popup-class',
+                  confirmButton: 'my-confirm-button-class'
+                }
               }).then(() => {
                 window.location.href = window.location.href.replace('cadastro', 'login');
               })
@@ -237,7 +249,11 @@ include_once('../toast.php');
               swal.fire({
                 title: "Erro",
                 html: "Erro ao cadastrar",
-                icon: "error"
+                icon: "error",
+                customClass: {
+                  popup: 'my-swal-popup-class',
+                  confirmButton: 'my-confirm-button-class'
+                }
               })
             }
           })
@@ -247,3 +263,14 @@ include_once('../toast.php');
       }
     })
   </script>
+  <style>
+     .my-swal-popup-class {
+    background-color: #374151;
+    color: white;
+  }
+
+  .my-confirm-button-class {
+    background-color: #2563eb;
+    color: black;
+  }
+  </style>
