@@ -86,8 +86,8 @@ include_once('../toast.php');
           error: (error) => {
             console.log(error)
             swal.fire({
-              title: "Erro",
-              html: "Erro ao logar",
+              title: "Erro ao logar",
+              html: "Senha ou email inválidos!",
               icon: "error",
               customClass: {
                 popup: 'my-swal-popup-class',

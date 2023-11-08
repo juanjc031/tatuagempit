@@ -125,7 +125,8 @@
           <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
           </svg>
-          <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Digite aqui o valor do pagamento</h3>
+          <h3 class="mb-2 text-lg font-normal text-gray-500 dark:text-gray-400">Digite aqui o valor do pagamento</h3>
+          <h3 class="mb-5 text-base font-normal text-gray-500 dark:text-gray-400">(É cobrada uma taxa de 5% para o aplicativo) </h3>
           <input type="text" name="pagamento" id="pagamento" class="bg-gray-50  border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2 dark:bg-gray-800 dark:border-gray-900 dark:placeholder-gray-400 dark:text-gray-300" placeholder="R$ 00,00">
           <button data-modal-hide="popup-modal" id="btnconfirm" type="button" class="text-white mt-5 bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
             Pagar
@@ -347,7 +348,7 @@
           </div>
           <div class="flex gap-6 flex-wrap mt-4">
             <button onClick="pagaraqui()" class="inline-flex items-center px-2.5 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Realizar o pagamento adiantado
+              Realizar o pagamento adiantado 
               <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
               </svg>
